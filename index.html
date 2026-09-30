@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>TECHNOVA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2>TECHNOVA</h2>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#events">Events</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#register">Register</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/tech.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+    <div class="hero-content">
+        <h1>TECHNOVA</h1>
+        <h2>Innovate • Create • Compete</h2>
+        <p>Where Innovation Meets Competition 🚀</p>
+        <p class="date">20 November 2026</p>
+        <a href="#register" class="btn">Register Now</a>
+    </div>
+</section>
+
+<!-- EVENT COUNTDOWN -->
+<section class="countdown-section">
+    <p class="countdown-tag">THE BIG DAY IS COMING</p>
+    <h2>Event Countdown</h2>
+    <p class="countdown-subtitle">
+        Get Ready for the Ultimate Tech Experience!
+    </p>
+
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <p>Days</p>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <p>Hours</p>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <p>Minutes</p>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <p>Seconds</p>
+        </div>
+    </div>
+
+    <p class="countdown-date">
+        20 NOVEMBER 2026
+    </p>
+</section>
+
+<script>
+const eventDate = new Date("2026-11-20T10:00:00").getTime();
+
+function updateCountdown() {
+    // Laptop da current date and time
+    const now = new Date().getTime();
+
+    // Remaining time
+    const distance = eventDate - now;
+
+    if (distance <= 0) {
+        document.querySelector(".countdown").innerHTML =
+            "<h2 style='color:#d4af37'>EVENT HAS STARTED!</h2>";
+        return;
+    }
+
+    // Calculate days, hours, minutes and seconds
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance / (1000 * 60 * 60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (distance / (1000 * 60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (distance / 1000) % 60
+    );
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+// Update immediately and every second
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+<section id="about" class="section">
+    <h2>About TECHNOVA</h2>
+    <p>
+        TECHNOVA is a college technical festival
+        designed to encourage creativity, innovation
+        and technical skills among students. It provides
+        a platform to learn, collaborate and compete
+        through exciting technical events.
+    </p>
+</section>
+
+<section id="events" class="section">
+    <h2>Our Events</h2>
+
+    <div class="event-container">
+        <div class="event-card">
+            <img src="images/image1.jpg"
+                 alt="Coding Competition">
+            <h3>Coding Competition</h3>
+            <p>Show your programming and problem-solving skills.</p>
+            <a href="#register" class="small-btn">Register</a>
+        </div>
+
+        <div class="event-card">
+            <img src="images/image2.jpg"
+                 alt="Web Designing">
+            <h3>Web Designing</h3>
+            <p>Create an attractive and responsive website.</p>
+            <a href="#register" class="small-btn">Register</a>
+        </div>
+
+        <div class="event-card">
+            <img src="images/image3.jpg"
+                 alt="Quiz Competition">
+            <h3>Quiz Competition</h3>
+            <p>Test your knowledge of technology and computers.</p>
+            <a href="#register" class="small-btn">Register</a>
+        </div>
+
+        <div class="event-card">
+            <img src="images/image4.jpg"
+                 alt="Gaming Competition">
+            <h3>Gaming Competition</h3>
+            <p>Take part in friendly gaming challenges.</p>
+            <a href="#register" class="small-btn">Register</a>
+        </div>
+    </div>
+</section>
+
+<section id="schedule" class="section">
+    <h2>Event Schedule</h2>
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Event</th>
+            <th>Venue</th>
+        </tr>
+        <tr>
+            <td>10:00 AM</td>
+            <td>Coding Competition</td>
+            <td>Computer Lab</td>
+        </tr>
+        <tr>
+            <td>11:30 AM</td>
+            <td>Web Designing</td>
+            <td>Lab 2</td>
+        </tr>
+        <tr>
+            <td>1:00 PM</td>
+            <td>Quiz Competition</td>
+            <td>Seminar Hall</td>
+        </tr>
+        <tr>
+            <td>2:30 PM</td>
+            <td>Gaming Competition</td>
+            <td>Activity Room</td>
+        </tr>
+    </table>
+</section>
+
+<section id="register" class="section">
+    <h2>Student Registration</h2>
+
+    <form class="registration-form">
+        <label>Student Name</label>
+        <input type="text" placeholder="Enter your name"
+               required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email"
+               required>
+
+        <label>Course</label>
+        <input type="text" placeholder="Enter your course"
+               required>
+
+        <label>Semester</label>
+        <select required>
+            <option value="">Select Semester</option>
+            <option>1st Semester</option>
+            <option>2nd Semester</option>
+            <option>3rd Semester</option>
+            <option>4th Semester</option>
+            <option>5th Semester</option>
+            <option>6th Semester</option>
+        </select>
+
+        <label>Select Event</label>
+        <select required>
+            <option value="">Choose Event</option>
+            <option>Coding Competition</option>
+            <option>Web Designing</option>
+            <option>Quiz Competition</option>
+            <option>Gaming Competition</option>
+        </select>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+</section>
+
+<section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <p><b>College:</b> Bebe Nanaki University College Fattudhinga</p>
+    <p><b>Email:</b> bebenanaki@example.com</p>
+    <p><b>Phone:</b> +91 98765XXXXX</p>
+    <p><b>Address:</b> Fattudhinga, Punjab</p>
+</section>
+
+<footer>
+    <p>© 2026 College Tech Fest. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
